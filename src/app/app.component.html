@@ -1,11 +1,7 @@
-<ul>
-  <li *ngFor="let person of people">
-    {{ person.name }} - {{ person.age }} лет, из города {{ person.city }}
-  </li>
-</ul>
+<a routerLink="/">Главная страница</a>
+<br />
+<a routerLink="/about">О компании</a>
+<br />
+<a routerLink="/contact">Наши контакты</a>
 
-<div>
-  Текущая дата: {{ today | date:'dd/MM/yyyy' }}
-</div>
-<p>изначальное значение числа:{{myNumber}}</p>
-<p>с применением Pipe: {{ myNumber | addFive }}</p>
+<router-outlet></router-outlet>
