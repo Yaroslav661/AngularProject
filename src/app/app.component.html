@@ -1,7 +1,21 @@
-<a routerLink="/">Главная страница</a>
-<br />
-<a routerLink="/about">О компании</a>
-<br />
-<a routerLink="/contact">Наши контакты</a>
+<mat-tab-group>
+  <mat-tab label="Main">
+    <ng-template matTabContent>
+      <app-main></app-main>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Page (Lazy Loaded)">
+    <ng-template matTabContent>
+      <router-outlet></router-outlet>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
 
+<!-- написал и одним способом и другим, потому что, то ли что-то не так, то ли у меня зависает, рад буду узнать
+ как поправить этот код -->
+
+<nav>
+  <a routerLink="/main">Main</a> |
+  <a routerLink="/page">Page (Lazy Loaded)</a>
+</nav>
 <router-outlet></router-outlet>
