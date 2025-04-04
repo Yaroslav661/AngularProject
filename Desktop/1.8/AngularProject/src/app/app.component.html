@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Работа с библиотеками</h1>
+  
+  <div class="card">
+    <h2>Moment.js (CommonJS)</h2>
+    <p>Текущая дата: {{ currentDate }}</p>
+    <p>Дата через неделю: {{ nextWeekDate }}</p>
+    <button (click)="showDates()">Показать даты</button>
+  </div>
+
+  <div class="card">
+    <h2>ngx-toastr</h2>
+    <button (click)="showSuccess()">Показать уведомление</button>
+  </div>
+</div>
