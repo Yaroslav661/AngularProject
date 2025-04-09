@@ -1,0 +1,14 @@
+<h1>Task List</h1>
+<div class="task-container">
+  <div *ngFor="let task of tasks" class="task-card">
+    <h3>{{ task.title }}</h3>
+    <p><strong>ID:</strong> {{ task.id }}</p>
+    <p><strong>User ID:</strong> {{ task.userId }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span [class.completed]="task.completed">
+        {{ task.completed ? "✅ Completed" : "❌ Not completed" }}
+      </span>
+    </p>
+  </div>
+</div>
