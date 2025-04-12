@@ -1,0 +1,60 @@
+<form [formGroup]="bookForm" (ngSubmit)="addBook()" class="book-form">
+  <div class="form-group">
+    <label for="title">Название книги:</label>
+    <input
+      type="text"
+      id="title"
+      formControlName="title"
+      class="form-control"
+      [class.is-invalid]="title.touched && title.errors"
+    />
+    <div [hidden]="!(title.touched && title.errors)" class="invalid-feedback">
+      <div [hidden]="!title.errors?.['required']">
+        Поле обязательно для заполнения
+      </div>
+      <div [hidden]="!title.errors?.['pattern']">
+        Допустимы только русские буквы без пробелов и спецсимволов
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="author">Автор:</label>
+    <input
+      type="text"
+      id="author"
+      formControlName="author"
+      class="form-control"
+      [class.is-invalid]="author.touched && author.errors"
+    />
+    <div [hidden]="!(author.touched && author.errors)" class="invalid-feedback">
+      <div [hidden]="!author.errors?.['required']">
+        Поле обязательно для заполнения
+      </div>
+      <div [hidden]="!author.errors?.['pattern']">
+        Допустимы только русские буквы без пробелов и спецсимволов
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">
+    Добавить книгу
+  </button>
+</form>
+
+<table class="table table-striped book-table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Название книги</th>
+      <th>Автор</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+    </tr>
+  </tbody>
+</table>

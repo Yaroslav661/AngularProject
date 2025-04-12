@@ -1,0 +1,29 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .book-form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .book-table {
+    margin-top: 20px;
+  }
+  
+  .invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875em;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545;
+  }
