@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,15 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private meta: Meta) {}
+  constructor(private meta: Meta, private titleService: Title) {}
 
   ngOnInit(): void {
-    this.meta.updateTag({ property: 'og:desc', content: 'root_desc' });
-    this.meta.updateTag({ name: 'title', content: 'Desk Page' });
+    this.titleService.setTitle('Desk Page');
+
+    this.meta.updateTag({ property: 'og:description', content: 'root_desc' });
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Desk Page Description',
+    });
   }
 }
