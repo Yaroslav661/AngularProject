@@ -1,0 +1,71 @@
+<div class="container">
+  <h1 class="text-center my-4">RxJS Number Streams</h1>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-light">
+          <h2 class="h5 mb-0">Sequential Numbers</h2>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <button
+              class="btn btn-success"
+              (click)="startSequentialStream()"
+              [disabled]="isSequentialActive"
+            >
+              Start
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="stopSequentialStream()"
+              [disabled]="!isSequentialActive"
+            >
+              Stop
+            </button>
+          </div>
+          <div class="stream-output">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let num of sequentialNumbers">
+                {{ num }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-light">
+          <h2 class="h5 mb-0">Random Numbers</h2>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <button
+              class="btn btn-success"
+              (click)="startRandomStream()"
+              [disabled]="isRandomActive"
+            >
+              Start
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="stopRandomStream()"
+              [disabled]="!isRandomActive"
+            >
+              Stop
+            </button>
+          </div>
+          <div class="stream-output">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let num of randomNumbers">
+                {{ num }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
