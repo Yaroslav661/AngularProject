@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Todo Data</h1>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="todoData">
+    <h2>Todo Item #1</h2>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ todoData.title }}</h5>
+        <p class="card-text">
+          Completed: {{ todoData.completed ? "Yes" : "No" }}
+        </p>
+        <p class="card-text">User ID: {{ todoData.userId }}</p>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h3>Raw Data:</h3>
+      <pre>{{ todoData | json }}</pre>
+    </div>
+  </div>
+</div>
