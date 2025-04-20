@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Динамическое отображение таблицы</h1>
+
+  <div class="buttons">
+    <button (click)="addDynamicTable()">Добавить таблицу</button>
+    <button (click)="clearTemplate()">Очистить</button>
+  </div>
+
+  <ng-container #tableContainer></ng-container>
+
+  <ng-template #tableTemplate>
+    <app-dynamic-table></app-dynamic-table>
+  </ng-template>
+</div>
