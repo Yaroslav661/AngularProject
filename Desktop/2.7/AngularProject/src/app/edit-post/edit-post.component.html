@@ -1,0 +1,26 @@
+<div *ngIf="post" class="card">
+    <div class="card-body">
+      <h3>Редактирование поста #{{post.id}}</h3>
+      
+      <div class="mb-3">
+        <label class="form-label">Заголовок</label>
+        <input [(ngModel)]="post.title" class="form-control">
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Текст</label>
+        <textarea [(ngModel)]="post.body" class="form-control" rows="5"></textarea>
+      </div>
+      
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      
+      <button (click)="saveChanges()" class="btn btn-success me-2">
+        Сохранить
+      </button>
+      <button [routerLink]="['/post', post.id]" class="btn btn-outline-secondary">
+        Отмена
+      </button>
+    </div>
+  </div>

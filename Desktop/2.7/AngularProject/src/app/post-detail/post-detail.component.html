@@ -1,0 +1,16 @@
+<div *ngIf="post" class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{post.title}}</h3>
+      <p class="card-text">{{post.body}}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">ID: {{post.id}}</small>
+        <button *ngIf="authService.isAdmin()" 
+                [routerLink]="['/edit', post.id]"
+                class="btn btn-warning btn-sm">
+          Редактировать
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <a routerLink="/posts" class="btn btn-outline-primary mt-3">Назад к списку</a>

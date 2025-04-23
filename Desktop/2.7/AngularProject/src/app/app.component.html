@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Главная</a>
+    
+    <div class="navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/posts">Все посты</a>
+        </li>
+      </ul>
+      
+      <div class="d-flex align-items-center">
+        <span class="text-light me-3">
+          Текущая роль: {{ currentRole === 'admin' ? 'Администратор' : 'Пользователь' }}
+        </span>
+        <button (click)="toggleRole()" 
+                class="btn btn-outline-light"
+                [class.btn-warning]="currentRole === 'admin'">
+          {{ currentRole === 'admin' ? 'Стать пользователем' : 'Стать администратором' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
