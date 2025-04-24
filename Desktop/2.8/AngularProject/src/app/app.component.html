@@ -1,0 +1,38 @@
+<div class="todo-app">
+  <h1>TODO Items</h1>
+  
+  <div class="todo-form">
+    <input 
+      type="text" 
+      [(ngModel)]="newTodo" 
+      placeholder="What needs to be done?"
+      (keyup.enter)="addTodo()"
+      [disabled]="(isLoading$ | async)!"
+    >
+    <button 
+      (click)="addTodo()"
+      [disabled]="!newTodo.trim() || (isLoading$ | async)"
+    >
+      <span *ngIf="!(isLoading$ | async)">Add</span>
+      <span *ngIf="isLoading$ | async">Adding...</span>
+    </button>
+  </div>
+
+  <div class="todo-list">
+    <div *ngIf="isLoading$ | async" class="loading">Loading...</div>
+    
+    <ul>
+      <li 
+        *ngFor="let todo of todos$ | async; trackBy: trackByFn"
+        class="todo-item"
+      >
+        {{ todo.text }}
+        <span class="date">{{ todo.createdAt | date:'medium' }}</span>
+      </li>
+    </ul>
+
+    <div *ngIf="(todos$ | async)?.length === 0" class="empty">
+      No tasks yet. 
+    </div>
+  </div>
+</div>
